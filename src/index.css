@@ -102,4 +102,8 @@
   .animate-hover {
     @apply transition-transform duration-300 hover:scale-105;
   }
+  
+  .animate-fade-in {
+    @apply opacity-0 animate-in fade-in duration-500 fill-mode-forwards;
+  }
 }

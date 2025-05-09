@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +10,10 @@ import ResultGallery from "@/components/ResultGallery";
 
 const Index = () => {
   const [showResults, setShowResults] = useState(false);
+
+  const handleGenerationComplete = () => {
+    setShowResults(true);
+  };
 
   return (
     <div className="min-h-screen bg-[#f8f9ff] flex flex-col">
@@ -22,9 +27,9 @@ const Index = () => {
           <PageHeader />
 
           {/* Основной интерфейс */}
-          <GeneratorForm />
+          <GeneratorForm onGenerationComplete={handleGenerationComplete} />
 
-          {/* Результаты генерации (условно отображаем) */}
+          {/* Результаты генерации */}
           <ResultGallery isVisible={showResults} />
 
           {/* Как это работает */}

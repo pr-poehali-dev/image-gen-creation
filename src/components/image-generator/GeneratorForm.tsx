@@ -7,7 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Icon from "@/components/ui/icon";
 
-const GeneratorForm = () => {
+interface GeneratorFormProps {
+  onGenerationComplete?: () => void;
+}
+
+const GeneratorForm = ({ onGenerationComplete }: GeneratorFormProps) => {
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   
@@ -18,6 +22,9 @@ const GeneratorForm = () => {
     // Имитация процесса генерации
     setTimeout(() => {
       setIsGenerating(false);
+      if (onGenerationComplete) {
+        onGenerationComplete();
+      }
     }, 3000);
   };
 
