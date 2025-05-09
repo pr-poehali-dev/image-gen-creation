@@ -30,7 +30,7 @@ const Index = () => {
           <GeneratorForm onGenerationComplete={handleGenerationComplete} />
 
           {/* Результаты генерации */}
-          <ResultGallery isVisible={showResults} />
+          {showResults && <ResultGallery isVisible={showResults} />}
 
           {/* Как это работает */}
           <HowItWorks />
